@@ -6,7 +6,8 @@
     --accent-green: #0B5B62;
     --accent-purple: #AC385D;
     --accent-burgundy: #8B3145;
-    --bandcamp-color: #629aa9;
+    /* --bandcamp-color: #629aa9; */
+    --bandcamp-color: #1da0c3;
 }
 
 * {
@@ -193,11 +194,13 @@ h2 {
 }
 
 .bandcamp {
-    border-color: var(--accent-purple);
+    /* border-color: var(--accent-purple); */
+    background-image: var(--bandcamp-color);
 }
 
 .bandcamp:hover {
-    background-color: var(--accent-purple);
+    /* background-color: var(--accent-purple); */
+    background-image: var(--bandcamp-color);
 }
 
 footer {

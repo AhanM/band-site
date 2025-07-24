@@ -4,8 +4,8 @@ function trackClick(platform) {
     console.log(`Click tracked for ${platform}`);
     
     // Example Facebook Pixel event (you'll need to replace YOUR_PIXEL_ID)
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'StreamingClick', {
+    if (typeof fbq === 'function') {
+        fbq('trackCustom', 'StreamingClick', {
             platform: platform,
             album: 'Next Year',
             artist: 'Daisy\'s Room'
