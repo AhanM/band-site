@@ -124,27 +124,13 @@
                 </div>
             </div>
 
-            <div class="signup-form__group" role="group" aria-labelledby="email-consent-label">
-                <p class="signup-form__legend" id="email-consent-label">
+            <label class="signup-form__check">
+                <input class="signup-form__checkbox" type="checkbox" name="email_consent" value="yes" required>
+                <span class="signup-form__check-text">
                     I consent to being contacted by email
                     <span class="signup-form__required" aria-hidden="true">*</span>
-                </p>
-                <label class="signup-form__check">
-                    <input class="signup-form__checkbox" type="checkbox" name="email_consent" value="yes" required>
-                    <span class="signup-form__check-label">Yes</span>
-                </label>
-            </div>
-
-            <div class="signup-form__group" role="group" aria-labelledby="list-subscribe-label">
-                <p class="signup-form__legend" id="list-subscribe-label">
-                    Select the lists you wish to subscribe to
-                    <span class="signup-form__required" aria-hidden="true">*</span>
-                </p>
-                <label class="signup-form__check">
-                    <input class="signup-form__checkbox" type="checkbox" name="list" value="daisys-room" required>
-                    <span class="signup-form__check-label">Daisy's Room</span>
-                </label>
-            </div>
+                </span>
+            </label>
 
             <button class="signup-form__submit" type="submit">Submit</button>
         </form>

@@ -27,7 +27,7 @@
             phone: String(data.get('phone') || ''),
             country: String(data.get('country') || ''),
             email_consent: data.get('email_consent') ? 'yes' : 'no',
-            list: String(data.get('list') || ''),
+            list: "daisys-room",
         };
 
         if (submitBtn) submitBtn.disabled = true;
