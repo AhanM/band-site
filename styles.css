@@ -3,6 +3,8 @@
     --bg: #241f21;
     --text: #ffffff;
     --text-muted: rgba(255, 255, 255, 0.75);
+    --accent: #6fcddd;
+    --accent-muted: rgba(111, 205, 221, 0.72);
     /* Acumin Bold Oblique — swap to acumin-pro if using Adobe Fonts */
     --font-primary: "Barlow Semi Condensed", "Acumin Pro", sans-serif;
     /* Helvetica Bold Oblique */
@@ -48,6 +50,15 @@ body {
     pointer-events: none;
     overflow: hidden;
     background-color: var(--bg);
+}
+
+/* Slight darken — tune opacity (0.2–0.45) without re-exporting the photo */
+.page-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 16, 18, 0.82);
+    pointer-events: none;
 }
 
 .page-bg__img {
@@ -196,11 +207,11 @@ body {
 
 .site-top__email:hover,
 .site-top__email:focus-visible {
-    color: var(--text-muted);
+    color: var(--accent);
 }
 
 .site-top__email:focus-visible {
-    outline: 1px solid var(--text);
+    outline: 1px solid var(--accent);
     outline-offset: 3px;
 }
 
@@ -214,16 +225,16 @@ body {
     display: flex;
     color: var(--text);
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .site-top__social-link:hover,
 .site-top__social-link:focus-visible {
-    opacity: 0.75;
+    color: var(--accent);
 }
 
 .site-top__social-link:focus-visible {
-    outline: 1px solid var(--text);
+    outline: 1px solid var(--accent);
     outline-offset: 4px;
 }
 
@@ -353,15 +364,16 @@ body {
     padding: 0.25rem 0;
     line-height: 1.4;
     white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
 .nav-item:hover,
 .nav-item:focus-visible {
-    opacity: 0.85;
+    color: var(--accent);
 }
 
 .nav-item:focus-visible {
-    outline: 1px solid var(--text);
+    outline: 1px solid var(--accent);
     outline-offset: 4px;
 }
 
@@ -430,15 +442,16 @@ body {
     color: var(--text);
     text-decoration: none;
     white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
 .listen-menu__link:hover,
 .listen-menu__link:focus-visible {
-    color: var(--text-muted);
+    color: var(--accent);
 }
 
 .listen-menu__link:focus-visible {
-    outline: 1px solid var(--text);
+    outline: 1px solid var(--accent);
     outline-offset: 2px;
 }
 
@@ -636,15 +649,16 @@ body.page-signup {
     border: none;
     border-radius: 999px;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .signup-form__submit:hover {
-    opacity: 0.88;
+    background: var(--accent);
+    color: var(--bg);
 }
 
 .signup-form__submit:focus-visible {
-    outline: 2px solid var(--text);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
 
