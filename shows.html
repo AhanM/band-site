@@ -3,25 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daisy's Room</title>
-    <meta name="description" content="Daisy's Room — official site">
+    <title>Shows — Daisy's Room</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-stub">
     <div class="grain grain--coarse" aria-hidden="true"></div>
     <div class="grain grain--fine" aria-hidden="true"></div>
-    <div class="decor" aria-hidden="true">
-        <span class="decor-star decor-star--1"></span>
-        <span class="decor-star decor-star--2"></span>
-        <span class="decor-star decor-star--3"></span>
-        <span class="decor-star decor-star--4"></span>
-        <span class="decor-star decor-star--5"></span>
-        <span class="decor-scratch decor-scratch--1"></span>
-        <span class="decor-scratch decor-scratch--2"></span>
-    </div>
 
     <header class="site-top">
         <div class="site-top__contact">
@@ -42,57 +32,10 @@
         </div>
     </header>
 
-    <main class="landing">
-        <header class="landing__header">
-            <img
-                class="landing__logo"
-                src="assets/band_logo.png"
-                alt="Daisy's Room"
-                width="442"
-                height="160"
-            >
-        </header>
-
-        <figure class="landing__hero">
-            <!-- Swap to video: use assets/autoplay_video.mov with poster band_image.JPEG -->
-            <img
-                class="landing__hero-img"
-                src="assets/band_image.JPEG"
-                alt="Daisy's Room"
-                width="4240"
-                height="2832"
-            >
-        </figure>
-
-        <nav class="landing__nav" aria-label="Primary">
-            <div class="listen-wrap">
-                <button
-                    type="button"
-                    class="nav-item listen-trigger"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-controls="listen-menu"
-                >
-                    LISTEN
-                    <span class="caret" aria-hidden="true"></span>
-                </button>
-                <ul class="listen-menu" id="listen-menu" role="menu">
-                    <li role="none">
-                        <a role="menuitem" class="listen-menu__link" href="#" data-platform="spotify">Spotify</a>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" class="listen-menu__link" href="#" data-platform="apple">Apple Music</a>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" class="listen-menu__link" href="#" data-platform="tidal">Tidal</a>
-                    </li>
-                </ul>
-            </div>
-            <a class="nav-item nav-item--shows" href="shows.html">SHOWS</a>
-            <a class="nav-item nav-item--signup" href="sign-up.html">SIGN UP</a>
-        </nav>
+    <main class="stub">
+        <a class="stub__back" href="index.html">← Home</a>
+        <h1 class="stub__title">Shows</h1>
+        <p class="stub__text">Coming soon.</p>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — Daisy's Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-signup">
+    <div class="grain grain--coarse" aria-hidden="true"></div>
+    <div class="grain grain--fine" aria-hidden="true"></div>
+    <div class="decor" aria-hidden="true">
+        <span class="decor-star decor-star--1"></span>
+        <span class="decor-star decor-star--2"></span>
+        <span class="decor-star decor-star--3"></span>
+        <span class="decor-star decor-star--4"></span>
+        <span class="decor-star decor-star--5"></span>
+        <span class="decor-scratch decor-scratch--1"></span>
+        <span class="decor-scratch decor-scratch--2"></span>
+    </div>
+
+    <header class="site-top">
+        <div class="site-top__contact">
+            <p class="site-top__line">brooklyn ny</p>
+            <a class="site-top__line site-top__email" href="mailto:booking@daisysroom.band">booking@daisysroom.band</a>
+        </div>
+        <div class="site-top__social">
+            <a class="site-top__social-link" href="https://instagram.com/daisysroom" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg class="site-top__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+            </a>
+            <a class="site-top__social-link" href="https://tiktok.com/@daisysroom" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <svg class="site-top__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.37 6.37 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="signup">
+        <a class="signup__home" href="index.html">← Home</a>
+
+        <header class="signup__header">
+            <img
+                class="signup__logo"
+                src="assets/band_logo.png"
+                alt="Daisy's Room"
+                width="442"
+                height="160"
+            >
+        </header>
+
+        <!-- Wire action to your mailing list provider (Mailchimp, etc.) -->
+        <form class="signup-form" action="#" method="post" novalidate>
+            <div class="signup-form__field">
+                <label class="signup-form__label" for="full-name">Full Name</label>
+                <input
+                    class="signup-form__input"
+                    type="text"
+                    id="full-name"
+                    name="full_name"
+                    placeholder="Type your name"
+                    autocomplete="name"
+                >
+            </div>
+
+            <div class="signup-form__field">
+                <label class="signup-form__label" for="email">
+                    Email<span class="signup-form__required" aria-hidden="true">*</span>
+                </label>
+                <input
+                    class="signup-form__input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Type your email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="signup-form__field">
+                <label class="signup-form__label" for="phone">Phone</label>
+                <input
+                    class="signup-form__input"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Type your phone number"
+                    autocomplete="tel"
+                >
+            </div>
+
+            <div class="signup-form__field">
+                <label class="signup-form__label" for="country">Country</label>
+                <div class="signup-form__select-wrap">
+                    <select class="signup-form__select" id="country" name="country" autocomplete="country-name">
+                        <option value="" selected disabled>Select your country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                        <option value="DE">Germany</option>
+                        <option value="FR">France</option>
+                        <option value="MX">Mexico</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="signup-form__group" role="group" aria-labelledby="email-consent-label">
+                <p class="signup-form__legend" id="email-consent-label">
+                    I consent to being contacted by email
+                    <span class="signup-form__required" aria-hidden="true">*</span>
+                </p>
+                <label class="signup-form__check">
+                    <input class="signup-form__checkbox" type="checkbox" name="email_consent" value="yes" required>
+                    <span class="signup-form__check-label">Yes</span>
+                </label>
+            </div>
+
+            <div class="signup-form__group" role="group" aria-labelledby="list-subscribe-label">
+                <p class="signup-form__legend" id="list-subscribe-label">
+                    Select the lists you wish to subscribe to
+                    <span class="signup-form__required" aria-hidden="true">*</span>
+                </p>
+                <label class="signup-form__check">
+                    <input class="signup-form__checkbox" type="checkbox" name="list" value="daisys-room" required>
+                    <span class="signup-form__check-label">Daisy's Room</span>
+                </label>
+            </div>
+
+            <button class="signup-form__submit" type="submit">Submit</button>
+        </form>
+    </main>
+
+    <script src="sign-up.js"></script>
+</body>
+</html>

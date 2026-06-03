@@ -1,27 +1,61 @@
-// Function to track clicks on streaming buttons
-function trackClick(platform) {
-    // This is where you'll add your actual pixel tracking code
-    console.log(`Click tracked for ${platform}`);
-    
-    // Example Facebook Pixel event (you'll need to replace YOUR_PIXEL_ID)
-    if (typeof fbq === 'function') {
-        fbq('trackCustom', 'StreamingClick', {
-            platform: platform,
-            album: 'Next Year',
-            artist: 'Daisy\'s Room'
+(function () {
+    const listenWrap = document.querySelector('.listen-wrap');
+    if (!listenWrap) return;
+
+    const trigger = listenWrap.querySelector('.listen-trigger');
+    const menu = listenWrap.querySelector('.listen-menu');
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    let openByClick = false;
+
+    function setOpen(open) {
+        openByClick = open;
+        listenWrap.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+    }
+
+    function setHover(hover) {
+        listenWrap.classList.toggle('is-hover', hover);
+        if (canHover) {
+            trigger.setAttribute('aria-expanded', String(hover || openByClick));
+        }
+    }
+
+    if (canHover) {
+        listenWrap.addEventListener('mouseenter', () => setHover(true));
+        listenWrap.addEventListener('mouseleave', () => {
+            setHover(false);
+            setOpen(false);
         });
     }
-}
 
-// Add loading animation
-document.addEventListener('DOMContentLoaded', function() {
-    const card = document.querySelector('.card');
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    
-    setTimeout(() => {
-        card.style.transition = 'all 0.6s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-    }, 100);
-}); 
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const next = !openByClick;
+        setOpen(next);
+        if (!canHover) {
+            listenWrap.classList.toggle('is-hover', next);
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!listenWrap.contains(e.target)) {
+            setHover(false);
+            setOpen(false);
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            setHover(false);
+            setOpen(false);
+            trigger.focus();
+        }
+    });
+
+    menu.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href="#"]');
+        if (link) e.preventDefault();
+    });
+})();
