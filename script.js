@@ -54,8 +54,4 @@
         }
     });
 
-    menu.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href="#"]');
-        if (link) e.preventDefault();
-    });
 })();

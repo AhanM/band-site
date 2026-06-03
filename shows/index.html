@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daisy's Room</title>
-    <meta name="description" content="Daisy's Room — official site">
+    <title>Shows — Daisy's Room</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <div class="grain grain--coarse" aria-hidden="true"></div>
@@ -47,12 +46,12 @@
         </div>
     </header>
 
-    <main class="landing">
-        <header class="page-brand landing__brand">
+    <main class="page-sub">
+        <header class="page-brand">
             <a class="page-brand__link" href="/" aria-label="Daisy's Room home">
                 <img
                     class="page-brand__logo"
-                    src="assets/band_logo.png"
+                    src="../assets/band_logo.png"
                     alt="Daisy's Room"
                     width="442"
                     height="160"
@@ -60,46 +59,8 @@
             </a>
         </header>
 
-        <figure class="landing__hero">
-            <!-- Swap to video: use assets/autoplay_video.mov with poster band_imagev2.jpeg -->
-            <img
-                class="landing__hero-img"
-                src="assets/band_imagev2.jpeg"
-                alt="Daisy's Room"
-                width="4240"
-                height="2832"
-            >
-        </figure>
-
-        <nav class="landing__nav" aria-label="Primary">
-            <div class="listen-wrap">
-                <button
-                    type="button"
-                    class="nav-item listen-trigger"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-controls="listen-menu"
-                >
-                    LISTEN
-                    <span class="caret" aria-hidden="true"></span>
-                </button>
-                <ul class="listen-menu" id="listen-menu" role="menu">
-                    <li role="none">
-                        <a role="menuitem" class="listen-menu__link" href="https://open.spotify.com/artist/15dZrNgZo1EuZrM7pJednS?si=pNxs9BGlQN2vCq5tK89vWA" target="_blank" rel="noopener noreferrer">Spotify</a>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" class="listen-menu__link" href="https://music.apple.com/us/artist/daisys-room/1743080226" target="_blank" rel="noopener noreferrer">Apple Music</a>
-                    </li>
-                    <li role="none">
-                        <a role="menuitem" class="listen-menu__link" href="https://tidal.com/artist/47363124" target="_blank" rel="noopener noreferrer">Tidal</a>
-                    </li>
-                </ul>
-            </div>
-            <a class="nav-item nav-item--shows" href="/shows">SHOWS</a>
-            <a class="nav-item nav-item--signup" href="/signup">SIGN UP</a>
-        </nav>
+        <h1 class="page-heading">Shows</h1>
+        <p class="page-sub__text">Coming soon.</p>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>

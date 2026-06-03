@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    { "source": "/shows.html", "destination": "/shows", "permanent": true },
+    { "source": "/sign-up.html", "destination": "/signup", "permanent": true },
+    { "source": "/sign-up", "destination": "/signup", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true }
+  ],
+  "trailingSlash": false
+}

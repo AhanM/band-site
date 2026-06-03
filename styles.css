@@ -7,8 +7,8 @@
     --font-primary: "Barlow Semi Condensed", "Acumin Pro", sans-serif;
     /* Helvetica Bold Oblique */
     --font-secondary: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --hero-max: 900px;
-    --logo-max: 420px;
+    --hero-max: 640px;
+    --logo-max: 300px;
     --form-max: 520px;
     --input-bg: #ffffff;
     --input-text: #1a1a1a;
@@ -30,6 +30,7 @@
 html,
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -37,7 +38,8 @@ body {
     background-color: var(--bg);
     color: var(--text);
     min-height: 100dvh;
-    overflow-x: hidden;
+    max-height: 100dvh;
+    overflow: hidden;
 }
 
 /* Film grain — static, chunky, asymmetric layers */
@@ -134,17 +136,28 @@ body {
     transform: rotate(-12deg);
 }
 
+/* Hero image sits on the vertical center line; logo above, nav below */
 .landing {
     position: relative;
     z-index: 1;
     min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: clamp(1rem, 2.5vh, 1.5rem);
-    padding: clamp(3.25rem, 7vh, 4rem) 1.25rem clamp(1.5rem, 4vw, 2.5rem);
+    box-sizing: border-box;
+    padding: clamp(3.25rem, 7vh, 4rem) 1.25rem 1.25rem;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    justify-items: center;
     text-align: center;
+}
+
+.landing__brand {
+    grid-row: 1;
+    align-self: end;
+    width: 100%;
+    padding-bottom: clamp(0.75rem, 2vh, 1.25rem);
+}
+
+.landing__hero {
+    grid-row: 2;
 }
 
 /* Top bar — contact & social */
@@ -228,14 +241,75 @@ body {
     fill: currentColor;
 }
 
-.landing__header {
+/* Shared logo placement across pages */
+.page-brand {
     flex-shrink: 0;
+    width: 100%;
+    text-align: center;
 }
 
-.landing__logo {
+.page-brand__link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.page-brand__link:focus-visible {
+    outline: 1px solid var(--text);
+    outline-offset: 6px;
+}
+
+.page-brand__logo {
     display: block;
     width: min(88vw, var(--logo-max));
     height: auto;
+    margin: 0 auto;
+}
+
+.page-heading {
+    font-family: var(--font-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+    text-align: center;
+    color: var(--text);
+    margin-bottom: clamp(1.25rem, 3vh, 2rem);
+}
+
+.page-sub {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--form-max);
+    margin: 0 auto;
+    padding: clamp(3.25rem, 7vh, 4rem) 1.25rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.page-sub .page-brand {
+    margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+}
+
+.page-sub--form {
+    align-items: stretch;
+    text-align: left;
+}
+
+.page-sub--form .page-heading {
+    align-self: center;
+}
+
+.page-sub__text {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
 }
 
 .landing__hero {
@@ -258,6 +332,8 @@ body {
 
 /* Primary navigation */
 .landing__nav {
+    grid-row: 3;
+    align-self: start;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -265,6 +341,7 @@ body {
     gap: clamp(1.5rem, 5vw, 3.5rem);
     width: 100%;
     max-width: 520px;
+    padding-top: clamp(0.75rem, 2vh, 1.25rem);
 }
 
 .nav-item {
@@ -401,50 +478,6 @@ body {
     min-height: 100dvh;
 }
 
-.signup {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: var(--form-max);
-    margin: 0 auto;
-    padding: clamp(3.25rem, 7vh, 4rem) 1.25rem 2.5rem;
-}
-
-.signup__home {
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-family: var(--font-secondary);
-    font-size: 0.75rem;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-}
-
-.signup__home:hover,
-.signup__home:focus-visible {
-    color: var(--text);
-}
-
-.signup__home:focus-visible {
-    outline: 1px solid var(--text);
-    outline-offset: 3px;
-}
-
-.signup__header {
-    text-align: center;
-    margin-bottom: clamp(1.25rem, 3vh, 2rem);
-}
-
-.signup__logo {
-    display: block;
-    width: min(88vw, var(--logo-max));
-    height: auto;
-    margin: 0 auto;
-}
-
 .signup-form {
     display: flex;
     flex-direction: column;
@@ -541,7 +574,7 @@ body {
 .signup-form__legend {
     display: block;
     padding: 0;
-    margin: 0 0 2rem;
+    margin: 0 0 1.15rem;
 }
 
 .signup-form__check {
@@ -595,57 +628,34 @@ body {
     outline-offset: 3px;
 }
 
-/* Stub pages */
-.page-stub {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100dvh;
-    padding-top: clamp(5rem, 22vh, 9rem);
+.signup-form__submit:disabled {
+    opacity: 0.6;
+    cursor: wait;
 }
 
-.stub {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 1rem 2rem 2rem;
-}
-
-.stub__back {
-    display: inline-block;
-    margin-bottom: 2rem;
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-}
-
-.stub__back:hover {
-    color: var(--text);
-}
-
-.stub__title {
-    font-family: var(--font-primary);
-    font-size: 1.75rem;
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: 0.06em;
-    text-transform: lowercase;
-    margin-bottom: 0.75rem;
-}
-
-.stub__text,
-.stub__back {
+.signup-success__message {
     font-family: var(--font-secondary);
-    font-weight: 700;
-    font-style: oblique;
-}
-
-.stub__text {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 2.2vw, 0.95rem);
     font-weight: 400;
     font-style: normal;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
     color: var(--text-muted);
+    line-height: 1.5;
+    text-align: center;
+    margin-top: -0.75rem;
 }
+
+.signup-feedback {
+    margin-bottom: 1rem;
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.signup-feedback--error {
+    color: #e85d5d;
+}
+

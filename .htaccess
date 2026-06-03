@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteRule ^shows\.html$ /shows [R=301,L]
+RewriteRule ^sign-up\.html$ /signup [R=301,L]
+RewriteRule ^sign-up$ /signup [R=301,L]
+RewriteRule ^index\.html$ / [R=301,L]
