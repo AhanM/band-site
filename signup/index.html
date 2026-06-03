@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="page-signup">
-    <div class="grain grain--coarse" aria-hidden="true"></div>
-    <div class="grain grain--fine" aria-hidden="true"></div>
+    <div class="page-bg" aria-hidden="true">
+        <picture>
+            <source type="image/webp" srcset="../assets/grain-source.webp">
+            <img class="page-bg__img" src="../assets/grain-source.jpg" alt="" width="2048" height="3071" decoding="async">
+        </picture>
+    </div>
     <div class="decor" aria-hidden="true">
         <span class="decor-star decor-star--1"></span>
         <span class="decor-star decor-star--2"></span>
@@ -51,7 +55,7 @@
             <a class="page-brand__link" href="/" aria-label="Daisy's Room home">
                 <img
                     class="page-brand__logo"
-                    src="../assets/band_logo.png"
+                    src="../assets/band_logo.png?v=2"
                     alt="Daisy's Room"
                     width="442"
                     height="160"

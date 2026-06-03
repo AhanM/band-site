@@ -15,8 +15,6 @@
     --select-bg: #d4d4d4;
     --submit-bg: #1a1818;
     --form-radius: 6px;
-    --grain-coarse: url("data:image/svg+xml,%3Csvg viewBox='0 0 640 480' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.26 0.14' numOctaves='3' seed='17' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    --grain-fine: url("data:image/svg+xml,%3Csvg viewBox='0 0 480 640' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.18 0.38' numOctaves='2' seed='91' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 *,
@@ -42,36 +40,29 @@ body {
     overflow: hidden;
 }
 
-/* Film grain — static, chunky, asymmetric layers */
-.grain {
+/* Full-bleed photo background; all UI stacks above */
+.page-bg {
     position: fixed;
     inset: 0;
-    z-index: 50;
+    z-index: 0;
     pointer-events: none;
-    background-repeat: repeat;
+    overflow: hidden;
+    background-color: var(--bg);
 }
 
-.grain--coarse {
-    background-image: var(--grain-coarse);
-    background-size: 560px 380px;
-    background-position: 12% 18%;
-    opacity: 0.34;
-    mix-blend-mode: soft-light;
-}
-
-.grain--fine {
-    background-image: var(--grain-fine);
-    background-size: 720px 460px;
-    background-position: 68% 42%;
-    opacity: 0.24;
-    mix-blend-mode: overlay;
+.page-bg__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
 }
 
 /* Decorative stars & scratches */
 .decor {
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
     overflow: hidden;
 }
@@ -108,11 +99,11 @@ body {
     background: linear-gradient(
         to bottom,
         transparent,
-        rgba(255, 255, 255, 0.35) 20%,
-        rgba(255, 255, 255, 0.35) 80%,
+        rgba(255, 255, 255, 0.85) 20%,
+        rgba(255, 255, 255, 0.85) 80%,
         transparent
     );
-    opacity: 0.5;
+    opacity: 0.9;
 }
 
 .decor-scratch--1 {
@@ -130,7 +121,7 @@ body {
     background: linear-gradient(
         to right,
         transparent,
-        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.9),
         transparent
     );
     transform: rotate(-12deg);
@@ -153,11 +144,13 @@ body {
     grid-row: 1;
     align-self: end;
     width: 100%;
-    padding-bottom: clamp(0.75rem, 2vh, 1.25rem);
+    line-height: 0;
+    padding-bottom: clamp(0.25rem, 0.75vh, 0.5rem);
 }
 
 .landing__hero {
     grid-row: 2;
+    margin: 0;
 }
 
 /* Top bar — contact & social */
@@ -313,12 +306,13 @@ body {
 }
 
 .landing__hero {
+    position: relative;
+    z-index: 1;
     width: min(92vw, var(--hero-max));
     aspect-ratio: 16 / 9;
     margin: 0;
     flex-shrink: 0;
     overflow: hidden;
-    background: var(--bg);
 }
 
 .landing__hero-img,
