@@ -52,13 +52,10 @@ body {
     background-color: var(--bg);
 }
 
-/* Slight darken — tune opacity (0.2–0.45) without re-exporting the photo */
+/* Temporary: dark overlay disabled while testing daisysroomBG */
 .page-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(20, 16, 18, 0.82);
-    pointer-events: none;
+    content: none;
+    display: none;
 }
 
 .page-bg__img {
@@ -156,12 +153,11 @@ body {
     align-self: end;
     width: 100%;
     line-height: 0;
-    padding-bottom: clamp(0.25rem, 0.75vh, 0.5rem);
+    padding-bottom: clamp(0.5rem, 1.25vh, 0.85rem);
 }
 
-.landing__hero {
-    grid-row: 2;
-    margin: 0;
+.landing__brand .page-brand__logo {
+    width: min(78vw, 240px);
 }
 
 /* Top bar — contact & social */
@@ -267,6 +263,7 @@ body {
     width: min(88vw, var(--logo-max));
     height: auto;
     margin: 0 auto;
+    image-rendering: auto;
 }
 
 .page-heading {
@@ -317,6 +314,7 @@ body {
 }
 
 .landing__hero {
+    grid-row: 2;
     position: relative;
     z-index: 1;
     width: min(92vw, var(--hero-max));
