@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css?v=28">
 </head>
 <body>
     <div class="page-bg" aria-hidden="true">
@@ -52,7 +52,7 @@
         </div>
     </header>
 
-    <main class="page-sub">
+    <main class="page-sub page-sub--shows">
         <header class="page-brand">
             <a class="page-brand__link" href="/" aria-label="Daisy's Room home">
                 <img
@@ -66,7 +66,13 @@
         </header>
 
         <h1 class="page-heading">Shows</h1>
-        <p class="page-sub__text">Coming soon.</p>
+        <div class="shows-panel">
+            <p class="page-sub__text shows-panel__empty" id="shows-empty" hidden>No upcoming shows.</p>
+            <ul class="shows-list" id="shows-list" hidden></ul>
+        </div>
     </main>
+
+    <script src="../config.js"></script>
+    <script src="../shows.js?v=6"></script>
 </body>
 </html>
