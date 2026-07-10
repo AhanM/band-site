@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css?v=30">
+    <link rel="stylesheet" href="../styles.css?v=31">
 </head>
 <body class="page-signup">
     <div class="page-bg" aria-hidden="true">
@@ -94,7 +94,9 @@
                     placeholder="Type your email"
                     autocomplete="email"
                     required
+                    aria-describedby="email-error"
                 >
+                <p class="signup-form__error" id="email-error" hidden role="alert"></p>
             </div>
 
             <div class="signup-form__field">
@@ -126,21 +128,24 @@
                 </div>
             </div>
 
-            <label class="signup-form__check">
-                <span class="signup-form__checkbox-hit">
-                    <input class="signup-form__checkbox" type="checkbox" name="email_consent" value="yes" required>
-                </span>
-                <span class="signup-form__check-text">
-                    I consent to being contacted by email
-                    <span class="signup-form__required" aria-hidden="true">*</span>
-                </span>
-            </label>
+            <div class="signup-form__field signup-form__field--consent">
+                <label class="signup-form__check">
+                    <span class="signup-form__checkbox-hit">
+                        <input class="signup-form__checkbox" type="checkbox" id="email-consent" name="email_consent" value="yes" required aria-describedby="consent-error">
+                    </span>
+                    <span class="signup-form__check-text">
+                        I consent to being contacted by email
+                        <span class="signup-form__required" aria-hidden="true">*</span>
+                    </span>
+                </label>
+                <p class="signup-form__error" id="consent-error" hidden role="alert"></p>
+            </div>
 
             <button class="signup-form__submit" type="submit">Submit</button>
         </form>
     </main>
 
     <script src="../config.js"></script>
-    <script src="../sign-up.js"></script>
+    <script src="../sign-up.js?v=2"></script>
 </body>
 </html>
