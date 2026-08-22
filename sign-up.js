@@ -2,14 +2,24 @@
     const form = document.getElementById('signup-form');
     const feedbackEl = document.getElementById('signup-feedback');
     const submitBtn = form?.querySelector('.signup-form__submit');
+    const nameInput = form?.querySelector('#full-name');
     const emailInput = form?.querySelector('#email');
+    const phoneInput = form?.querySelector('#phone');
     const consentInput = form?.querySelector('#email-consent');
     const sheetUrl = window.GOOGLE_SHEET_URL || '';
 
     if (!form) return;
 
+    nameInput?.addEventListener('input', function () {
+        clearFieldError('name-error', nameInput);
+    });
+
     emailInput?.addEventListener('input', function () {
         clearFieldError('email-error', emailInput);
+    });
+
+    phoneInput?.addEventListener('input', function () {
+        clearFieldError('phone-error', phoneInput);
     });
 
     consentInput?.addEventListener('change', function () {
@@ -66,6 +76,16 @@
     function validateForm() {
         let valid = true;
 
+        if (nameInput) {
+            const name = nameInput.value.trim();
+            nameInput.value = name;
+
+            if (!name) {
+                showFieldError('name-error', nameInput, 'Please enter your name.');
+                valid = false;
+            }
+        }
+
         if (emailInput) {
             const email = emailInput.value.trim();
             emailInput.value = email;
@@ -79,8 +99,18 @@
             }
         }
 
+        if (phoneInput) {
+            const phone = phoneInput.value.trim();
+            phoneInput.value = phone;
+
+            if (!phone) {
+                showFieldError('phone-error', phoneInput, 'Please enter your phone number.');
+                valid = false;
+            }
+        }
+
         if (consentInput && !consentInput.checked) {
-            showFieldError('consent-error', consentInput, 'Please agree to be contacted by email.');
+            showFieldError('consent-error', consentInput, 'Please agree to be contacted by phone or email.');
             valid = false;
         }
 
@@ -108,7 +138,9 @@
     }
 
     function clearAllFieldErrors() {
+        if (nameInput) clearFieldError('name-error', nameInput);
         if (emailInput) clearFieldError('email-error', emailInput);
+        if (phoneInput) clearFieldError('phone-error', phoneInput);
         if (consentInput) clearFieldError('consent-error', consentInput);
     }
 

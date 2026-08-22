@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css?v=31">
+    <link rel="stylesheet" href="../styles.css?v=32">
 </head>
 <body class="page-signup">
     <div class="page-bg" aria-hidden="true">
@@ -71,7 +71,9 @@
 
         <form class="signup-form" id="signup-form" method="post" novalidate>
             <div class="signup-form__field">
-                <label class="signup-form__label" for="full-name">Full Name</label>
+                <label class="signup-form__label" for="full-name">
+                    Full Name<span class="signup-form__required" aria-hidden="true">*</span>
+                </label>
                 <input
                     class="signup-form__input"
                     type="text"
@@ -79,7 +81,10 @@
                     name="full_name"
                     placeholder="Type your name"
                     autocomplete="name"
+                    required
+                    aria-describedby="name-error"
                 >
+                <p class="signup-form__error" id="name-error" hidden role="alert"></p>
             </div>
 
             <div class="signup-form__field">
@@ -100,7 +105,9 @@
             </div>
 
             <div class="signup-form__field">
-                <label class="signup-form__label" for="phone">Phone</label>
+                <label class="signup-form__label" for="phone">
+                    Phone<span class="signup-form__required" aria-hidden="true">*</span>
+                </label>
                 <input
                     class="signup-form__input"
                     type="tel"
@@ -108,7 +115,10 @@
                     name="phone"
                     placeholder="Type your phone number"
                     autocomplete="tel"
+                    required
+                    aria-describedby="phone-error"
                 >
+                <p class="signup-form__error" id="phone-error" hidden role="alert"></p>
             </div>
 
             <div class="signup-form__field">
@@ -131,11 +141,14 @@
             <div class="signup-form__field signup-form__field--consent">
                 <label class="signup-form__check">
                     <span class="signup-form__checkbox-hit">
-                        <input class="signup-form__checkbox" type="checkbox" id="email-consent" name="email_consent" value="yes" required aria-describedby="consent-error">
+                        <input class="signup-form__checkbox" type="checkbox" id="email-consent" name="email_consent" value="yes" required aria-describedby="consent-note consent-error">
                     </span>
-                    <span class="signup-form__check-text">
-                        I consent to being contacted by email
-                        <span class="signup-form__required" aria-hidden="true">*</span>
+                    <span class="signup-form__check-copy">
+                        <span class="signup-form__check-text">
+                            I consent to being contacted by phone or email
+                            <span class="signup-form__required" aria-hidden="true">*</span>
+                        </span>
+                        <span class="signup-form__check-note" id="consent-note">we'll only reach out sparingly about big shows + band news. no spam.</span>
                     </span>
                 </label>
                 <p class="signup-form__error" id="consent-error" hidden role="alert"></p>
@@ -146,6 +159,6 @@
     </main>
 
     <script src="../config.js"></script>
-    <script src="../sign-up.js?v=2"></script>
+    <script src="../sign-up.js?v=5"></script>
 </body>
 </html>
