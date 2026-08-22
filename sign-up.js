@@ -50,7 +50,7 @@
             list: 'daisys-room',
         };
 
-        if (submitBtn) submitBtn.disabled = true;
+        setSubmitLoading(true);
 
         try {
             const response = await fetch(sheetUrl, {
@@ -65,11 +65,20 @@
                 throw new Error(result.error || 'Submit failed');
             }
 
+            sessionStorage.setItem('signup-submitted', '1');
+            resetFormState();
             window.location.href = '/signup/success';
         } catch (err) {
             console.error(err);
             showFeedback('Something went wrong. Please try again.', 'error');
-            if (submitBtn) submitBtn.disabled = false;
+            setSubmitLoading(false);
+        }
+    });
+
+    window.addEventListener('pageshow', function () {
+        if (sessionStorage.getItem('signup-submitted') === '1') {
+            sessionStorage.removeItem('signup-submitted');
+            resetFormState();
         }
     });
 
@@ -142,6 +151,27 @@
         if (emailInput) clearFieldError('email-error', emailInput);
         if (phoneInput) clearFieldError('phone-error', phoneInput);
         if (consentInput) clearFieldError('consent-error', consentInput);
+    }
+
+    function resetFormState() {
+        form.reset();
+        clearAllFieldErrors();
+        hideFeedback();
+        setSubmitLoading(false);
+    }
+
+    function setSubmitLoading(isLoading) {
+        if (!submitBtn) return;
+
+        if (isLoading) {
+            submitBtn.classList.add('is-loading');
+            submitBtn.setAttribute('aria-busy', 'true');
+            submitBtn.textContent = 'Submitting…';
+        } else {
+            submitBtn.classList.remove('is-loading');
+            submitBtn.removeAttribute('aria-busy');
+            submitBtn.textContent = 'Submit';
+        }
     }
 
     function showFeedback(message, type) {
